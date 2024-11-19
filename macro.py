@@ -56,16 +56,33 @@ def add_day_datetime(yyyymmddHHMMss: str) -> str:
 # {seq}の書換え処理
 #####################
 
-def make_seq():
-    seq = 1
-    while True:
-        yield seq
-        seq += 1
+def make_seq(s = 'number'):
+    if(s == 'string'):
+        seq = 1
+        while True:
+            yield f"{seq:03}"
+            seq += 1
+    else:
+        seq = 1
+        while True:
+            yield seq
+            seq += 1
 
 
 
 # 使用例
 if __name__ == '__main__':
-    
+    # add_day　テスト
     print(add_day("202403{dd}"))
+
+    # make_seq　テスト
+    seq_gen = make_seq()
+    for _ in range(5):
+        print(next(seq_gen))
+
+    # make_seq　テスト（文字列）
+    seq_gen_str = make_seq('string')
+    for _ in range(5):
+        print(next(seq_gen_str))
+        
     

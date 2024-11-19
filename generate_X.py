@@ -48,7 +48,9 @@ def mk_csv(folder, table):
                             seq_val = next(seq_gens[col]); tmp_val = tmp_val.replace('{seq}', str(seq_val))
                         bluepaint[col].append(tmp_val)
             
-            bluepaint['SUBJID'] = list(range(1, records_count + 1))
+            # SUBJIDに値が入っていない場合には、連番で埋める。
+            if len(bluepaint['SUBJID']) == 0:
+                bluepaint['SUBJID'] = list(range(1, records_count + 1))
 
             # 設定書を検査する。
             rows = len(next(iter(bluepaint.values())))
