@@ -2,12 +2,12 @@
 ## 1. 概要
    このプログラムは、設計図から、csvファイルとそれを含むフォルダ構成を自動生成します。  
 ## 2. 使用方法
-<li>設計図ファイル（config.py）作成</li>
-<li>
-   <ol>空白、None、文字列、数値など、大体のものは入力可能です。日付型は文字列として入力してください。</ol>
-   <ol>Noneは「,,,」のように囲い文字なし。""は「"","",""」のように囲われます。</ol>
-   <ol>configで指定されなかった場合、そのまま出力されます。</ol>
-</li>
+#### 設計図ファイル（config.py）作成
+<ol>
+   <li>空白、None、文字列、数値など、大体のものは入力可能です。日付型は文字列として入力してください。</li>
+   <li>Noneは「,,,」のように囲い文字なし。""は「"","",""」のように囲われます。</li>
+   <li>configで指定されなかった場合、そのまま出力されます。</li>
+</ol>
 <div class="snippet-clipboard-content notranslate overflow-auto">
 <pre class="notranslate"><code>template = {<br>
     # フォルダ名を記載<br>
@@ -23,10 +23,10 @@
              ...<br>
         },<br>
     },<br>
-}`<br>
+}<br>
 </code></pre>
 
-<li>フォルダの出力先を設定</li>
+#### フォルダの出力先を設定
 <div class="snippet-clipboard-content notranslate overflow-auto">
 <pre class="notranslate"><code>#generate.py 15行目付近
 OUTPUT_DIR = r'C:\path\to\output'
