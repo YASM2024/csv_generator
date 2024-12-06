@@ -22,12 +22,12 @@ def mk_csv(folder, table):
         ######################## データ生成・出力方法を定義 #######################
 
         def generate(folder, table):
-            # configからbluepaintを生成する
+            # configからblueprintを生成する
             cols = conf.get_cols(TITLE, folder, table)
             
-            # bluepaint に、プレースホルダを作成する。
-            bluepaint = { 'SUBJID': [] }
-            for col in cols: bluepaint[col] = []
+            # blueprint に、プレースホルダを作成する。
+            blueprint = { 'COLUMN1': [] }
+            for col in cols: blueprint[col] = []
 
             # Configをループして設定書を作成する。
             records_count = 0
@@ -46,23 +46,23 @@ def mk_csv(folder, table):
                         if isinstance(tmp_val, str) and '{dd}' in tmp_val: tmp_val = add_day(tmp_val)
                         if isinstance(tmp_val, str) and '{seq}' in tmp_val: 
                             seq_val = next(seq_gens[col]); tmp_val = tmp_val.replace('{seq}', str(seq_val))
-                        bluepaint[col].append(tmp_val)
+                        blueprint[col].append(tmp_val)
             
-            # SUBJIDに値が入っていない場合には、連番で埋める。
-            if len(bluepaint['SUBJID']) == 0:
-                bluepaint['SUBJID'] = list(range(1, records_count + 1))
+            # COLUMN1に値が入っていない場合には、連番で埋める。
+            if len(blueprint['COLUMN1']) == 0:
+                blueprint['COLUMN1'] = list(range(1, records_count + 1))
 
             # 設定書を検査する。
-            rows = len(next(iter(bluepaint.values())))
-            if not all(isinstance(value, list) and len(value) == rows for value in bluepaint.values()):
-                raise Exception(f"Folder[{folder}] Table[{table}]：bluepaintの各項目がリストであり、かつ要素数が一致している必要があります。プログラムを終了します。")
+            rows = len(next(iter(blueprint.values())))
+            if not all(isinstance(value, list) and len(value) == rows for value in blueprint.values()):
+                raise Exception(f"Folder[{folder}] Table[{table}]：blueprintの各項目がリストであり、かつ要素数が一致している必要があります。プログラムを終了します。")
 
             # 設定書から各行のデータを生成する。
             for i in range(rows):
                 data = TEMPLATE[folder][table].copy()
                 # 生成ルールを記載
-                data['SUBJID'] = bluepaint["SUBJID"][i]
-                for col in cols: data[col] = bluepaint[col][i]
+                data['COLUMN1'] = blueprint["COLUMN1"][i]
+                for col in cols: data[col] = blueprint[col][i]
 
                 yield data
 
