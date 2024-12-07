@@ -6,7 +6,7 @@
 <ol>
    <li>空白、None、文字列、数値など、大体のものは入力可能です。日付型は文字列として入力してください。</li>
    <li>Noneは「,,,」のように囲い文字なし。""は「"","",""」のように囲われます。</li>
-   <li>configで指定されなかった場合、そのまま出力されます。</li>
+   <li>configで指定されなかった場合、デフォルト値がそのまま出力されます。</li>
 </ol>
 <div class="snippet-clipboard-content notranslate overflow-auto">
 <pre class="notranslate"><code>template = {<br>
