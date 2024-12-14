@@ -26,7 +26,7 @@ def mk_csv(folder, table):
             blueprint = { 'COLUMN1': [] }
             for col in cols: blueprint[col] = []
 
-            # Configをループして設定書を作成する。
+            # settingをループして設定書を作成する。
             records_count = 0
 
             for item in sh.setting[TITLE][folder][table]:
