@@ -7,7 +7,7 @@
 <ol>
    <li>空白、None、文字列、数値など、大体のものは入力可能です。日付型は文字列として入力してください。</li>
    <li>Noneは「,,,」のように囲い文字なし。""は「"","",""」のように囲われます。</li>
-   <li>configで指定されなかった場合、デフォルト値がそのまま出力されます。</li>
+   <li>setting</li>で指定されなかった場合、デフォルト値がそのまま出力されます。</li>
 </ol>
 <div class="snippet-clipboard-content notranslate overflow-auto">
 <pre class="notranslate"><code>template = {<br>
@@ -27,10 +27,9 @@
 }<br>
 </code></pre>
 
-#### 設計図ファイル（config.py）を作成
+#### 設計図ファイル（setting.txt）を作成
 <div class="snippet-clipboard-content notranslate overflow-auto">
-<pre class="notranslate"><code>class Config:<br>
-    config = {<br>
+<pre class="notranslate"><code>config = {<br>
         # 作成件名<br>
         'ISSUE_X':{<br>
             # フォルダ名<br>
@@ -58,6 +57,7 @@
 
 #### フォルダの出力先を設定
 <div class="snippet-clipboard-content notranslate overflow-auto">
-<pre class="notranslate"><code>#generate.py 15行目付近
-OUTPUT_DIR = r'C:\path\to\output'
+<pre class="notranslate"><code>#main.py 15行目付近
+OUTPUT_DIR = r'C:\path\to\output'  
+SETTING_DIR = r'C:\path\to\output'
 </code></pre>
