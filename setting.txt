@@ -1,0 +1,46 @@
+setting = {
+
+    # 作成件名
+    'ISSUE_X':{
+
+        # フォルダ名
+        'FOLDER1':{
+            
+            # テーブル名
+            'TABLE1': [
+
+                # カラム１の値を「0」、カラム２の値を「0」とした組み合わせを10行作成する
+                # 例：[{'カラム１': 0, 'カラム２': 0}, 10]
+
+                [{'COLUMN1': 0, 'COLUMN2': 0}, 10],
+                [{'COLUMN1': 1, 'COLUMN2': 0}, 10],
+                [{'COLUMN1': 0, 'COLUMN2': 1}, 10],
+                [{'COLUMN1': 1, 'COLUMN2': 1}, 10],
+            ],
+            
+            'TABLE2': [
+
+                # {dd}は日付を生成する
+
+                [{'COLUMN3': '202407{dd}'}, 10],
+                [{'COLUMN3': '202408{dd}'}, 10],
+                [{'COLUMN3': '202604{dd}'}, 10],
+                [{'COLUMN3': '202605{dd}'}, 10],            
+            ],
+
+            'TABLE3': [
+
+                # {seq}は連番を生成する
+
+                [{'COLUMN4': 'YY-{seq}', 'COLUMN5': 1,'COLUMN6': 1,'COLUMN7': 1}, 10],
+                [{'COLUMN4': 'AA-{seq}', 'COLUMN5': 1,'COLUMN6': 2,'COLUMN7': 1}, 10],
+                [{'COLUMN4': 'AA-{seq}', 'COLUMN5': 1,'COLUMN6': 3,'COLUMN7': 1}, 10],
+                [{'COLUMN4': 'AA-{seq}', 'COLUMN5': 1,'COLUMN6': 99,'COLUMN7': 1}, 10],
+
+            ],
+        },
+        'FOLDER2':{
+
+        },
+    }
+}

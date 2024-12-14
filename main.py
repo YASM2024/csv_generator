@@ -1,29 +1,26 @@
 import os, csv, random
 from template import template
-from config import Config
+from setting_handler import SettingHandler
 from macro import add_day, make_seq, replace_none_with_emptystring
-
 
 from pprint import pprint
 
-conf = Config()
-
 TITLE = 'ISSUE_X'
-CONFIG = conf.config[TITLE]
 TEMPLATE = template
-
-OUTPUT_DIR = r'C:\path\to\output'
+OUTPUT_DIR = r'C:\Users\Public\Documents\git\csv_generator\output'
+SETTING_DIR = r'C:\Users\Public\Documents\git\csv_generator\setting.txt'
+sh = SettingHandler(SETTING_DIR)
 
 def mk_csv(folder, table):
     try:
-        output_folder = TITLE + '\\' + folder
+        output_folder = fr'{TITLE}\{folder}'
         FILENAME = f'{table}.csv'
 
         ######################## データ生成・出力方法を定義 #######################
 
         def generate(folder, table):
-            # configからblueprintを生成する
-            cols = conf.get_cols(TITLE, folder, table)
+            # settingからblueprintを生成する
+            cols = sh.get_cols(TITLE, folder, table)
             
             # blueprint に、プレースホルダを作成する。
             blueprint = { 'COLUMN1': [] }
@@ -32,7 +29,7 @@ def mk_csv(folder, table):
             # Configをループして設定書を作成する。
             records_count = 0
 
-            for item in CONFIG[folder][table]:
+            for item in sh.setting[TITLE][folder][table]:
                 values, count = item
                 seq_gens = {col: make_seq() for col in cols}  # 各カラムごとにジェネレータを作成
 
@@ -96,3 +93,5 @@ def mk_csv(folder, table):
 
 # 使いかた
 mk_csv( folder = "FOLDER1", table = "TABLE1" )
+mk_csv( folder = "FOLDER1", table = "TABLE2" )
+mk_csv( folder = "FOLDER1", table = "TABLE3" )
