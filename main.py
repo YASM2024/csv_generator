@@ -1,18 +1,19 @@
-import os, csv, random
-from template import template
-from setting_handler import SettingHandler
-from macro import add_day, make_seq, replace_none_with_emptystring
-
-from pprint import pprint
-
 TITLE = 'ISSUE_X'
-TEMPLATE = template
 OUTPUT_DIR = r'C:\Users\Public\Documents\git\csv_generator\output'
 SETTING_DIR = r'C:\Users\Public\Documents\git\csv_generator\setting.txt'
-sh = SettingHandler(SETTING_DIR)
 
 def mk_csv(folder, table):
+
+    import os, csv, random
+    from template import template
+    from setting_handler import SettingHandler
+    from macro import add_day, make_seq, replace_none_with_emptystring
+
+    from pprint import pprint
+
     try:
+        TEMPLATE = template
+        sh = SettingHandler(SETTING_DIR)
         output_folder = fr'{TITLE}\{folder}'
         FILENAME = f'{table}.csv'
 
