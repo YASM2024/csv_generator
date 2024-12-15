@@ -9,7 +9,7 @@ class Generator:
 
     def mk_csv(self, folder, table):
 
-        import os, csv, random, configparser
+        import os, csv, random
         from template import template
         from pprint import pprint
         from setting_handler import SettingHandler
