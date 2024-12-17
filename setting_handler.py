@@ -1,12 +1,17 @@
 class SettingHandler():
 
     def __init__(self, file_path):
+        import os, json
         self.__setting = {}
-        with open(file_path, 'r', encoding='utf-8') as file:
-            code = file.read()
-            exec(code, globals(), locals())
-        self.__setting = locals()['setting']
 
+        ext = os.path.splitext(file_path)[1].lower()
+        with open(file_path, 'r', encoding='utf-8') as file:
+            if ext == '.json':
+                self.__setting = json.load(file)
+            if ext == '.txt':
+                code = file.read()
+                exec(code, globals(), locals())
+                self.__setting = locals()['setting']
 
     def get_cols(self, title: str, folder: str, table: str) -> list:
         tmp_set = set()
@@ -29,7 +34,7 @@ if __name__ == '__main__':
     try:
         from template import template
 
-        sh = SettingHandler(r'C:\Users\Public\Documents\git\csv_generator\setting.txt')
+        sh = SettingHandler(r'C:\Users\Public\Documents\git\csv_generator\setting.json')
         setting = sh.setting
 
         for title, folders in setting.items():

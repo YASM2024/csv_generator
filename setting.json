@@ -1,0 +1,27 @@
+{
+    "ISSUE_JSON": {
+        "FOLDER1": {
+            "TABLE1": [
+                [{"COLUMN1": 0,"COLUMN2": 0},10],
+                [{"COLUMN1": 1,"COLUMN2": 0},10],
+                [{"COLUMN1": 0.0,"COLUMN2": 1.0},10],
+                [{"COLUMN1": 1,"COLUMN2": 1},10]
+            ],
+            "TABLE2": [
+                [{"COLUMN3": "202407{dd}"},10],
+                [{"COLUMN3": "202408{dd}"},10],
+                [{"COLUMN3": "202604{dd}"},10],
+                [{"COLUMN3": "202605{dd}"},10]
+            ],
+            "TABLE3": [
+                [{"COLUMN4": "YY-{seq}","COLUMN5": 1,"COLUMN6": 1.0,"COLUMN7": 1},10],
+                [{"COLUMN4": "AA-{seq}","COLUMN5": 1,"COLUMN6": 2.0,"COLUMN7": 1},10],
+                [{"COLUMN4": "AA-{seq}","COLUMN5": 1,"COLUMN6": 3,"COLUMN7": 1},10],
+                [{"COLUMN4": "AA-{seq}","COLUMN5": 1,"COLUMN6": 99,"COLUMN7": 1},10]
+            ]
+        },
+        "FOLDER2": {
+            
+        }
+    }
+}
